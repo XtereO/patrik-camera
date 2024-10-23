@@ -36,8 +36,7 @@ async def bg_worker():
         cv2.waitKey(1)
 
         if success:
-            frames = img.tolist()
-            last_frames.set_last_frames(frames)
+            last_frames.set_last_frames(img)
             
         else:
             logger.info("camera error, it doesn't read")
