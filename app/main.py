@@ -21,7 +21,8 @@ last_frames = Frames()
 
 cap = cv2.VideoCapture(0)
 
-fps = 12
+fps = 10
+ifps = 1/fps
 size = (640, 480)
 cap.set(cv2.CAP_PROP_FPS, fps)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, size[0])
@@ -40,7 +41,7 @@ async def bg_worker():
             
         else:
             logger.info("camera error, it doesn't read")
-        await asyncio.sleep(0.01)
+        await asyncio.sleep(ifps)
 
 
 @asynccontextmanager
